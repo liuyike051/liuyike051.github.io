@@ -1,40 +1,130 @@
+参考答案1(选择范围，直接产生答案版)：
 <html>
-<head>
-<title>i以内的加减法</title>
-</head>
-<body>
-<h1>小学数学加减法运算</h1><h4>i以内的的加减法运算</h4><hr/>
-<script language="vbscript">
-dim a,b,c,d
-dim f
-for i=1 to 60
-f=0
-do while f=0
-randomize
-a=int(rnd()*20)+1
-b=int(rnd()*20)+1
-c=int(rnd()*20)+1
-if c=1 then
-d=a+b
-if d<=20 then
-f=1
-document.write(a&"+"&b&"="&"</br>")
-else f=0
-end if
-end if
-if c=2 then
-d=a-b
-if d>0 then
-f=1
-documnt.write(a&"="&b&"="&"</br>)
-else f=0
-end if
-end if
-'if i mod 10=0 then
-'document.write("</br>")
-'end if
-loop
-next
+  <head>
+   <script  language="javascript">
+     aa=new Array(100);
+     bb=new Array(100);
+     cc=new Array(100);
+
+     function  ti()
+     {
+         var a,b,c,i,l,h;var str="";
+       i=0;
+       l=parseInt(f1.l_location.value);
+       h=parseInt(f1.h_location.value);
+       while(i<100)
+      {
+          a=l+Math.floor(Math.random()*(h-l));
+          b=l+Math.floor(Math.random()*(h-l));
+          c=a+b;
+          while(c>=h+10)
+          { 
+            a=l+Math.floor(Math.random()*(h-l));
+            b=l+Math.floor(Math.random()*(h-l));
+            c=a+b;
+
+            }
+            str=str+a+"+"+b+"="+"<br>";
+             aa[i]=a;
+            bb[i]=b;
+            cc[i]=c;
+ //           document.write(a+"+"+b+"="+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+            i++;
+   //         if(i%3==0)
+   //           document.write("<br>");
+
+          }  
+        document.getElementById("l1").innerHTML=str;
+        }
+    function answer()
+   {
+    var i;var s="";
+     for(i=0;i<10;i)
+       {
+          s=s+"("+i+")"+aa[i]+"+"+bb[i]+"="+cc[i]+"<br>";
+          i++;
+        } 
+     document.getElementById("l2").innerHTML=s;
+
+     }
+
+
+    </script>
+   </head>
+   <body>
+    <h1 align="center">生成算术题</h1>
+ <center>
+     <form name="f1">
+      请输入计算数据的下限:<input type="text" name="l_location">
+      请输入计算数据的上限:<input type="text" name="h_location"><p>
+       <input type="button" value="题目" onclick="ti()">
+       <input type="button" value="答案" onclick="answer()">
+     </form>
+  <p>
+   <table   width=400>
+   <tr ><td><div id="d1"><li>题目</li><li id="l1"></li></div><td><div id="d2"><li>答案</li><li id="l2"></div>
+   </table>
+ <font size=5>
+
+<script>
+ /*  var i;
+    ti(40);
+   for(i=1;i<=10;i++)
+    document.write(aa[i]+"+"+bb[i]+"="+cc[i]+"<br>");
+ */
 </script>
+ </center>
+     </body> 
+参考答案2（控件名可以通过id根据变量产生，做错答案版）：
+<!--下载后将此题目改为随机四则运算的，能够计算正确率并显示的 -->
+<html>
+  <head>
+   <script>
+    var a=new Array(100);
+    var b=new Array(100);
+    var wrong1=new Array(100);
+    function aa()
+    {
+      var k=0,s,erros; 
+
+      for(i=1;i<=10;i++)
+       { str="r"+i;
+         v=document.getElementById(str);
+         vr=parseInt(v.value);
+        if(a[i]+b[i]!=vr)
+        {
+           wrong1[k]=i;
+           k++;
+            }
+         }
+       erros="";
+       for(i=0;i<k;i++)
+            erros=erros+wrong1[i]+",";
+       v1=document.getElementById("p1");
+       v1.innerHTML="你做错的题目一共是"+k+"道;分别是：";
+       v2=document.getElementById("erro");
+      v2.innerHTML=erros;
+}
+   </script>
+  </head>
+<body>
+<h2>在文本框里写入左侧题目结果，算完之后提交</h2>
+ <form name="f1">  
+   <script>
+     var i;
+     for(i=1;i<=10;i++)
+      {
+
+        a[i]=Math.floor(Math.random()*10);
+        b[i]=Math.floor(Math.random()*10);
+        document.write("("+i+")"+a[i]+"+"+b[i]+"=");
+        document.write("<input type='text' id=r"+i+ "   value='' >"+"<br>");
+         }
+        </script>
+    <input type="button" value="提交" onclick=aa()>
+</form>
+<p id="p1" style="font-size:36px"></p>
+<div id="erro"></div>
 </body>
 </html>
+
