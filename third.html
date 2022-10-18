@@ -9,7 +9,7 @@
 
 
 	<script language="vbscript">dim
-	a,b,c,d
+	dim a,b,c,d
 	dim f
 
 
@@ -19,7 +19,7 @@
 		f=0
 		do while f=0
 		
-			ran domize
+			randomize
 			a=int(rnd()*20)+1
 			b=int(rnd()*20)+1
 			c=int(rnd()*20)+1
@@ -27,24 +27,29 @@
 			d=a+b
 			if d<=20 then
 				f=1
-			docume nt.write(a&"+"&b&"="&"else f=0 end if	</br>")
+			document.write(a&"+"&b&"="&"else f=0 end if	</br>")
+		else f=0
+		end if
 		end if
 
 		if c=2 then
 			d=a-b
 			if d>0 then
 			  f=1
-			docum nt.write(a&"="&b&"="&"else f=0 end if
+			documnt.write(a&"="&b&"="&"else f=0 end if     </br>)
+			else f=0
 			end if
-								</br>)
+			end if
+								
 		'if i mod 10=0 then
-		'docume nt.write("</br>")
+		'document.write("</br>")
 		'end if
 		loop
 
 
 
-		next</script>
+		next
+		</script>
 
 		</body>
 		</html>
