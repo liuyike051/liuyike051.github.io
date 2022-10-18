@@ -1,77 +1,59 @@
-<!DOCTYPE html>
 <html>
-    <head>
-       <title>小朋友做数学题</title>
-        <script type="text/javascript">
-        var c=1
-        var x
-        var i;
-        var a;
-        var b;
-        function create(){
-        var div1=document.getElementById('div1');
-        div1.innerHTML="";
-        var str="";
-        if(document.getElementById('txt').value=="10以内"){
-            for (var i=1; i<=10; i++){
-                    var p=document.createElement("p"); 
-                    a=Math.round(Math.random()*10)
-                    b=Math.round(Math.random()*10)
-                    str+=""+i+".  "+a+"+"+b+"=";
-                    p.innerHTML=str;
-                    div1.appendChild(p);
-                    str="";
-                }
-            }
-        else if(document.getElementById('txt').value=="20以内")
-        {
-        for (var i=1; i<=10; i++){
-            var p=document.createElement("p"); 
-                    a=Math.round(Math.random()*20)
-                    b=Math.round(Math.random()*20)
-                    str+=""+i+".  "+a+"+"+b+"=";
-                    p.innerHTML=str;
-                    div1.appendChild(p);
-                    str="";
-        }
-        }
-        else
-        {
-        for (var i=1; i<=10; i++){
-                var p=document.createElement("p"); 
-                    a=Math.round(Math.random()*100)
-                    b=Math.round(Math.random()*100)
-                    str+=""+i+".  "+a+"+"+b+"=";
-                    p.innerHTML=str;
-                    div1.appendChild(p);
-                    str="";
-        }
-        }
-        }
-        </script>
-    </head>
-    <body>
-       <div>
-        <p>小朋友学数学</p>
-        </div>
-        <div>
-        <p>加法运算</p>
-        </div>
-        <div id="table1">
-           <table>
-               <tr>
-                   <td>计算范围</td>
-                    <td>
-                       <select id="txt">
-                        <option value="10以内">10以内</option>
-                        <option value="20以内">20以内</option>
-                        <option value="100以内">100以内</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    <div><p><input id="button" type="button" value="开始计算" onClick="create()"></p></div>
-    <div style="border:0px solid red; width:500px;height:500px;" id="div1"><div>
-    </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>加减法</title>
+<script>
+  function start1(){
+      var i;
+
+          var a=Math.round(parseInt(Math.random()*20));
+          var b=Math.round(parseInt(Math.random()*20));
+          var c=Math.round(parseInt(Math.random()*2));//0-2  ≥0  ＜2   故只产生0 1
+          alert(c);
+          if(c==0)
+          
+             app.sign.value="+";
+          else 
+         
+             app.sign.value="-";
+          app.num1.value=a;
+          app.num2.value=b;
+
+
+          }
+  function judge(){
+      if(app.sign.value=="+"){
+
+          if(parseInt(app.num3.value)==parseInt(app.num1.value)+parseInt(app.num2.value)){
+              alert("回答正确");
+          }
+          else
+              alert("回答错误");
+
+
+      }
+      else if(app.sign.value=="-"){
+      if(parseInt(app.num3.value)==parseInt(app.num1.value)-parseInt(app.num2.value)){
+          alert("回答正确");
+      }
+      else
+          alert("回答错误");
+
+      }
+
+      }
+</script>
+</head>
+<body>
+<form name="app">
+<p>加减法</p>
+<input type="button"   value=开始 onClick=start1()><br></br>
+<input type="text"  name="num1" >
+<input type="text"  name="sign" size="1">
+<input type="text"  name="num2"> =
+<input type="text"  name="num3" > <br></br>
+<input type="button"   value=提交 onClick=judge()>
+</form>
+
+</body>
 </html>
