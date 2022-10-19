@@ -2,20 +2,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>加减法</title>
+<title>Insert title here</title>
 <script>
   function start1(){
       var i;
 
-          var a=Math.round(parseInt(Math.random()*20));
-          var b=Math.round(parseInt(Math.random()*20));
+          var a=Math.round(parseInt(Math.random()*100));
+          var b=Math.round(parseInt(Math.random()*100));
           var c=Math.round(parseInt(Math.random()*2));//0-2  ≥0  ＜2   故只产生0 1
           alert(c);
           if(c==0)
-          
              app.sign.value="+";
-          else 
-         
+          else
              app.sign.value="-";
           app.num1.value=a;
           app.num2.value=b;
@@ -26,19 +24,19 @@
       if(app.sign.value=="+"){
 
           if(parseInt(app.num3.value)==parseInt(app.num1.value)+parseInt(app.num2.value)){
-              alert("回答正确");
+              alert("Correct");
           }
           else
-              alert("回答错误");
+              alert("Wrong");
 
 
       }
       else if(app.sign.value=="-"){
       if(parseInt(app.num3.value)==parseInt(app.num1.value)-parseInt(app.num2.value)){
-          alert("回答正确");
+          alert("Correct");
       }
       else
-          alert("回答错误");
+          alert("Wrong");
 
       }
 
@@ -47,13 +45,13 @@
 </head>
 <body>
 <form name="app">
-<p>加减法</p>
-<input type="button"   value=开始 onClick=start1()><br></br>
+<p>ADD&SUB</p>
+<input type="button"   value=start onClick=start1()><br></br>
 <input type="text"  name="num1" >
 <input type="text"  name="sign" size="1">
 <input type="text"  name="num2"> =
 <input type="text"  name="num3" > <br></br>
-<input type="button"   value=提交 onClick=judge()>
+<input type="button"   value=submmit onClick=judge()>
 </form>
 
 </body>
