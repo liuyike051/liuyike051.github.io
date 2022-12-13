@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+            border-radius:50%;
+            color: azure;
+            opacity:0.2;
+            display: inline-block;
+            text-align: center;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var arr = []
+    var s = '绝代有佳人，幽居在空谷。自云良家子，零落依草木。'
+    for (var i = 0; i < 100; i++) {
+        var divDom = document.createElement('div');
+        divDom.textContent = s;
+        document.body.appendChild(divDom);
+        arr.push(divDom)
+    }
+    document.body.onclick= function () {
+        for (let ball of arr) {
+            divRandomPositon(ball);
+        }
+    };
+    document.body.onmouseover = function () {
+        for (let ball of arr) {
+            mouseOver(ball);
+        }
+    };
+
+    function divRandomPositon(dom){
+        var bodyWidth = window.innerWidth;
+        var bodyHeight = window.innerHeight;
+        Math.random()
+        dom.style.marginLeft=Math.random()*bodyWidth+"px";
+        dom.style.marginTop=Math.random()*bodyHeight+"px";
+    }
+
+    function mouseOver(dom){
+        dom.style.margin = "auto";
+    }
+
+</script>
+</body>
+</html>
